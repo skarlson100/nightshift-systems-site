@@ -2,14 +2,14 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Nightshift Systems | Software & Automation Systems",
+  title: "Nightshift Systems | FleetTrack Pro & Operational Software",
   description:
-    "Australian software and automation studio building custom apps, SaaS products, fleet systems, and operational tools.",
+    "Australian operational software company behind FleetTrack Pro and selected internal software systems.",
   metadataBase: new URL("https://nightshiftsystems.com.au"),
   openGraph: {
-    title: "Nightshift Systems | Software & Automation Systems",
+    title: "Nightshift Systems | FleetTrack Pro & Operational Software",
     description:
-      "Australian software and automation studio building custom apps, SaaS products, fleet systems, and operational tools.",
+      "Australian operational software company behind FleetTrack Pro and selected internal software systems.",
     url: "https://nightshiftsystems.com.au",
     siteName: "Nightshift Systems",
     locale: "en_AU",

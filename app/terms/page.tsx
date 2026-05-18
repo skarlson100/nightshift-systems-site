@@ -13,27 +13,36 @@ export default function TermsPage() {
 
       <section className="mx-auto max-w-3xl px-5 py-12 text-base leading-8 text-slate-400 sm:px-8">
         <p>
-          These terms are a simple placeholder for the Nightshift Systems website. They will be updated with more
-          detailed terms as required for specific products, projects, or services.
+          These Terms apply to the Nightshift Systems website and related software services unless separate written
+          terms apply. Nightshift Systems operates under ABN 23 942 251 561. FleetTrack Pro is a product of
+          Nightshift Systems.
         </p>
 
-        <h2 className="mt-10 text-xl font-semibold text-white">Website use</h2>
+        <h2 className="mt-10 text-xl font-semibold text-white">Use of software</h2>
         <p className="mt-3">
-          The information on this website is provided for general business enquiries. It does not create a service
-          agreement, support agreement, or product subscription by itself.
+          Users are responsible for providing accurate information and for checking records entered into or exported
+          from the software, including vehicle records, maintenance history, compliance dates, receipts, trip records,
+          and reports.
         </p>
 
-        <h2 className="mt-10 text-xl font-semibold text-white">Project work</h2>
+        <h2 className="mt-10 text-xl font-semibold text-white">Fleet and compliance records</h2>
         <p className="mt-3">
-          Any software project, product subscription, or commercial engagement will be governed by separate written
-          terms agreed between the relevant parties.
+          FleetTrack Pro supports fleet management workflows, but it does not replace professional accounting, legal,
+          tax, insurance, mechanical, registration, or compliance advice. Users should verify records, reminders, and
+          exported reports before relying on them for business, compliance, or financial decisions.
+        </p>
+
+        <h2 className="mt-10 text-xl font-semibold text-white">Availability and changes</h2>
+        <p className="mt-3">
+          Nightshift Systems aims to provide practical and reliable software, but services may change, be interrupted,
+          or require maintenance from time to time.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold text-white">Contact</h2>
         <p className="mt-3">
           For questions, contact{" "}
-          <a href="mailto:hello@nightshiftsystems.com.au" className="text-emerald-300 hover:text-emerald-200">
-            hello@nightshiftsystems.com.au
+          <a href="mailto:support@nightshiftsystems.com.au" className="text-emerald-300 hover:text-emerald-200">
+            support@nightshiftsystems.com.au
           </a>
           .
         </p>

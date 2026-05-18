@@ -19,13 +19,13 @@ const buildItems = [
 const proofItems = ["FleetTrack Pro", "Operational software", "Internal tools", "Selected projects"];
 
 const fleetFeatures = [
-  "Maintenance tracking",
-  "Vehicle cost history",
-  "Trip logging",
-  "Compliance reminders",
+  "Maintenance and expense tracking",
+  "GPS trip tracking",
+  "Compliance management",
+  "Service interval alerts",
   "AI receipt scanning",
   "PDF reports",
-  "Team access",
+  "Multi-user roles",
   "Small fleets"
 ];
 
@@ -92,7 +92,7 @@ function Header() {
           <a href="#process" className="transition hover:text-white">Process</a>
           <a href="#contact" className="transition hover:text-white">Contact</a>
         </nav>
-        <Button href="mailto:hello@nightshiftsystems.com.au" variant="secondary">Start a project</Button>
+        <Button href="mailto:support@nightshiftsystems.com.au" variant="secondary">Start a project</Button>
       </Container>
     </header>
   );
@@ -250,11 +250,11 @@ export default function Home() {
               Practical software for real operational work.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
-              Nightshift Systems is the company behind FleetTrack Pro and selected internal software projects for
-              businesses that need clearer records, cleaner workflows, and fewer spreadsheet workarounds.
+              FleetTrack Pro is a product of Nightshift Systems. Nightshift Systems also builds selected internal
+              software projects for businesses that need clearer records, cleaner workflows, and fewer spreadsheet workarounds.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="mailto:hello@nightshiftsystems.com.au">Start a project</Button>
+              <Button href="mailto:support@nightshiftsystems.com.au">Start a project</Button>
               <Button href="#fleettrack" variant="secondary">View FleetTrack Pro</Button>
             </div>
             <p className="mt-6 text-sm text-slate-500">
@@ -305,8 +305,8 @@ export default function Home() {
               Fleet management without the enterprise bloat.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-8 text-slate-400">
-              A mobile-first fleet system for small operators who need maintenance, costs, trips, compliance,
-              reporting, and team visibility in one place.
+              A mobile-first fleet system for small operators who need maintenance and expense tracking, GPS trips,
+              compliance management, service alerts, PDF reports, and multi-user access in one place.
             </p>
             <div className="mt-7 flex flex-wrap gap-2">
               {fleetFeatures.map((feature) => (
@@ -335,16 +335,16 @@ export default function Home() {
           </div>
           <div className="rounded-xl border border-slate-800 bg-[#0d1117] p-6 sm:p-7">
             <p className="text-base leading-8 text-slate-300">
-              Nightshift Systems was started by Steven Cang after building internal operational tools for real-world
+              Nightshift Systems was built from practical experience creating internal operational tools for real-world
               fleet and infrastructure environments.
             </p>
             <p className="mt-5 text-base leading-8 text-slate-400">
-              FleetTrack Pro began as an internal system for managing vehicles, servicing, compliance, and operating
+              FleetTrack Pro is a product of Nightshift Systems. It began as an internal system for managing vehicles, servicing, compliance, and operating
               costs. It evolved into a standalone platform because the same problem kept appearing: small operators
               needed practical fleet software without enterprise complexity.
             </p>
             <p className="mt-5 text-base leading-8 text-slate-400">
-              The company is currently focused on FleetTrack Pro and selected internal software projects where the
+              Nightshift Systems is currently focused on FleetTrack Pro and selected internal software projects where the
               problem is clear, operational, and worth solving properly.
             </p>
           </div>
@@ -383,7 +383,7 @@ export default function Home() {
               </p>
             </div>
             <div className="mt-6 lg:mt-0">
-              <Button href="mailto:hello@nightshiftsystems.com.au">Contact Nightshift Systems</Button>
+              <Button href="mailto:support@nightshiftsystems.com.au">Contact Nightshift Systems</Button>
             </div>
           </div>
         </Container>
@@ -400,13 +400,13 @@ export default function Home() {
               <a href="#fleettrack" className="transition hover:text-slate-200">FleetTrack Pro</a>
             </div>
             <div>
-              <a href="mailto:hello@nightshiftsystems.com.au" className="transition hover:text-slate-200">
-                hello@nightshiftsystems.com.au
+              <a href="mailto:support@nightshiftsystems.com.au" className="transition hover:text-slate-200">
+                support@nightshiftsystems.com.au
               </a>
             </div>
           </div>
           <div className="mt-8 flex flex-col gap-4 border-t border-slate-800 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
-            <p>&copy; 2026 Nightshift Systems. All rights reserved.</p>
+            <p>&copy; 2026 Nightshift Systems. ABN 23 942 251 561.</p>
             <div className="flex gap-6">
               <a href="/privacy" className="transition hover:text-slate-400">Privacy Policy</a>
               <a href="/terms" className="transition hover:text-slate-400">Terms of Service</a>

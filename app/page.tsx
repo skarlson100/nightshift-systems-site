@@ -1,3 +1,39 @@
+import type { Metadata } from "next";
+import Image from "next/image";
+
+export const metadata: Metadata = {
+  title: "Nightshift Systems | Practical Software for Operators",
+  description:
+    "Nightshift Systems builds FleetTrack Pro and practical software for small operators, vehicle fleets, and operational businesses.",
+  alternates: {
+    canonical: "/"
+  },
+  openGraph: {
+    title: "Nightshift Systems | Practical Software for Operators",
+    description:
+      "Nightshift Systems builds FleetTrack Pro and practical software for small operators, vehicle fleets, and operational businesses.",
+    url: "https://nightshiftsystems.com.au",
+    siteName: "Nightshift Systems",
+    images: [
+      {
+        url: "/images/fleettrack/dashboard.jpeg",
+        width: 946,
+        height: 2049,
+        alt: "FleetTrack Pro dashboard screenshot"
+      }
+    ],
+    locale: "en_AU",
+    type: "website"
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nightshift Systems | Practical Software for Operators",
+    description:
+      "Nightshift Systems builds FleetTrack Pro and practical software for small operators, vehicle fleets, and operational businesses.",
+    images: ["/images/fleettrack/dashboard.jpeg"]
+  }
+};
+
 const buildItems = [
   {
     icon: "01",
@@ -7,7 +43,7 @@ const buildItems = [
   {
     icon: "02",
     title: "Fleet and asset platforms",
-    text: "FleetTrack Pro is the clearest example: software for vehicles, servicing, compliance, costs, usage, and operational history."
+    text: "FleetTrack Pro is the flagship product: software for vehicles, servicing, compliance, costs, usage, and operational history."
   },
   {
     icon: "03",
@@ -94,6 +130,15 @@ function Header() {
         </nav>
         <Button href="mailto:support@nightshiftsystems.com.au" variant="secondary">Start a project</Button>
       </Container>
+      <nav className="border-t border-slate-800/70 md:hidden">
+        <Container className="flex gap-5 overflow-x-auto py-3 text-sm text-slate-400">
+          <a href="#build" className="shrink-0 transition hover:text-white">What we build</a>
+          <a href="#fleettrack" className="shrink-0 transition hover:text-white">FleetTrack Pro</a>
+          <a href="#about" className="shrink-0 transition hover:text-white">About</a>
+          <a href="#process" className="shrink-0 transition hover:text-white">Process</a>
+          <a href="#contact" className="shrink-0 transition hover:text-white">Contact</a>
+        </Container>
+      </nav>
     </header>
   );
 }
@@ -181,7 +226,14 @@ function PhoneFrame({
   return (
     <div className={`phone-frame ${className}`}>
       <div className="phone-speaker" />
-      <img src={src} alt={alt} className="h-full w-full object-cover" />
+      <Image
+        src={src}
+        alt={alt}
+        width={946}
+        height={2049}
+        sizes="(max-width: 640px) 250px, 280px"
+        className="h-full w-full object-cover"
+      />
     </div>
   );
 }
@@ -250,15 +302,15 @@ export default function Home() {
               Practical software for real operational work.
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
-              FleetTrack Pro is a product of Nightshift Systems. Nightshift Systems also builds selected internal
-              software projects for businesses that need clearer records, cleaner workflows, and fewer spreadsheet workarounds.
+              FleetTrack Pro is a product of Nightshift Systems. Nightshift Systems also builds practical
+              software for small operators, vehicle fleets, and operational businesses that need clearer records and cleaner workflows.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Button href="mailto:support@nightshiftsystems.com.au">Start a project</Button>
               <Button href="#fleettrack" variant="secondary">View FleetTrack Pro</Button>
             </div>
             <p className="mt-6 text-sm text-slate-500">
-              Built in Australia. Currently focused on FleetTrack Pro and selected internal software projects.
+              Built in Australia. Nightshift Systems is operated by CAJON OUTDOOR EQUIPMENT PTY LTD.
             </p>
           </div>
 
@@ -281,7 +333,7 @@ export default function Home() {
           <SectionHeading
             eyebrow="What we build"
             title="Focused systems for operational businesses."
-            text="Nightshift Systems is not trying to be a large full-service agency. The work is deliberately focused around operational software, FleetTrack Pro, and selected internal tools."
+            text="Nightshift Systems is an Australian software and automation studio focused on practical products, FleetTrack Pro, and selected internal tools for operational businesses."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {buildItems.map((item) => (
@@ -335,17 +387,16 @@ export default function Home() {
           </div>
           <div className="rounded-xl border border-slate-800 bg-[#0d1117] p-6 sm:p-7">
             <p className="text-base leading-8 text-slate-300">
-              Nightshift Systems was built from practical experience creating internal operational tools for real-world
-              fleet and infrastructure environments.
+              Nightshift Systems is an Australian software and automation studio operated by CAJON OUTDOOR EQUIPMENT PTY LTD.
+              It builds practical software products for small operators, vehicle fleets, and operational businesses.
             </p>
             <p className="mt-5 text-base leading-8 text-slate-400">
-              FleetTrack Pro is a product of Nightshift Systems. It began as an internal system for managing vehicles, servicing, compliance, and operating
-              costs. It evolved into a standalone platform because the same problem kept appearing: small operators
-              needed practical fleet software without enterprise complexity.
+              FleetTrack Pro is a product of Nightshift Systems and is the flagship product. It is built for managing vehicles,
+              servicing, compliance, operating costs, and fleet records without enterprise complexity.
             </p>
             <p className="mt-5 text-base leading-8 text-slate-400">
-              Nightshift Systems is currently focused on FleetTrack Pro and selected internal software projects where the
-              problem is clear, operational, and worth solving properly.
+              Nightshift Systems is operated from Aveley WA 6069, Australia. Legal entity: CAJON OUTDOOR EQUIPMENT PTY LTD.
+              ABN 88 673 204 558. ACN 673 204 558. D-U-N-S 891696846.
             </p>
           </div>
         </Container>
@@ -378,8 +429,11 @@ export default function Home() {
                 Ready to replace the messy workaround?
               </h2>
               <p className="mt-4 max-w-2xl text-base leading-8 text-slate-400">
-                Tell us what is slowing your team down. We will help turn it into a practical system your business
-                can actually use.
+                Tell us what is slowing your team down. Nightshift Systems can help turn it into a practical system your
+                business can actually use.
+              </p>
+              <p className="mt-4 text-sm leading-6 text-slate-500">
+                Nightshift Systems is operated by CAJON OUTDOOR EQUIPMENT PTY LTD, ABN 88 673 204 558.
               </p>
             </div>
             <div className="mt-6 lg:mt-0">
@@ -394,7 +448,7 @@ export default function Home() {
           <div className="grid gap-8 text-sm text-slate-500 md:grid-cols-[1.2fr_1fr_1fr]">
             <div>
               <p className="font-semibold text-white">Nightshift Systems</p>
-              <p className="mt-2">Australian operational software systems</p>
+              <p className="mt-2">Australian software and automation studio</p>
             </div>
             <div>
               <a href="#fleettrack" className="transition hover:text-slate-200">FleetTrack Pro</a>
@@ -406,7 +460,10 @@ export default function Home() {
             </div>
           </div>
           <div className="mt-8 flex flex-col gap-4 border-t border-slate-800 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
-            <p>&copy; 2026 Nightshift Systems. ABN 23 942 251 561.</p>
+            <p>
+              &copy; 2026 Nightshift Systems. Nightshift Systems is a trading name of CAJON OUTDOOR EQUIPMENT PTY LTD.
+              ABN 88 673 204 558.
+            </p>
             <div className="flex gap-6">
               <a href="/privacy" className="transition hover:text-slate-400">Privacy Policy</a>
               <a href="/terms" className="transition hover:text-slate-400">Terms of Service</a>

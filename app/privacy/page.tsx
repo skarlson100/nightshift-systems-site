@@ -1,3 +1,33 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Privacy Policy",
+  description:
+    "Privacy Policy for CAJON OUTDOOR EQUIPMENT PTY LTD trading as Nightshift Systems, FleetTrack Pro, and related software services.",
+  alternates: {
+    canonical: "/privacy"
+  },
+  robots: {
+    index: false,
+    follow: true
+  },
+  openGraph: {
+    title: "Privacy Policy | Nightshift Systems",
+    description:
+      "Privacy Policy for CAJON OUTDOOR EQUIPMENT PTY LTD trading as Nightshift Systems, FleetTrack Pro, and related software services.",
+    url: "https://nightshiftsystems.com.au/privacy",
+    siteName: "Nightshift Systems",
+    locale: "en_AU",
+    type: "article"
+  },
+  twitter: {
+    card: "summary",
+    title: "Privacy Policy | Nightshift Systems",
+    description:
+      "Privacy Policy for CAJON OUTDOOR EQUIPMENT PTY LTD trading as Nightshift Systems, FleetTrack Pro, and related software services."
+  }
+};
+
 export default function PrivacyPage() {
   return (
     <main className="min-h-screen bg-[#050608] text-white">
@@ -13,8 +43,9 @@ export default function PrivacyPage() {
 
       <section className="mx-auto max-w-3xl px-5 py-12 text-base leading-8 text-slate-400 sm:px-8">
         <p>
-          This Privacy Policy explains how Nightshift Systems, ABN 23 942 251 561, handles information collected
-          through this website, FleetTrack Pro, and related operational software services where applicable.
+          This Privacy Policy explains how CAJON OUTDOOR EQUIPMENT PTY LTD trading as Nightshift Systems, ABN 88 673
+          204 558, handles information collected through this website, FleetTrack Pro, and related software services
+          where applicable.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold text-white">Information we may collect</h2>
@@ -30,7 +61,8 @@ export default function PrivacyPage() {
         <h2 className="mt-10 text-xl font-semibold text-white">How information is used</h2>
         <p className="mt-3">
           Information is used to respond to enquiries, provide and improve software services, maintain records,
-          support users, operate FleetTrack Pro features, and meet reasonable business or legal requirements.
+          support users, operate Nightshift Systems and FleetTrack Pro features, and meet reasonable business or legal
+          requirements.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold text-white">Third-party services</h2>
@@ -44,6 +76,12 @@ export default function PrivacyPage() {
         <p className="mt-3">
           Reasonable technical and organisational measures are used to protect information. No method of transmission
           or storage can be guaranteed to be absolutely secure.
+        </p>
+
+        <h2 className="mt-10 text-xl font-semibold text-white">Operator details</h2>
+        <p className="mt-3">
+          Nightshift Systems is operated by CAJON OUTDOOR EQUIPMENT PTY LTD, an Australian Proprietary Company. ACN
+          673 204 558. D-U-N-S 891696846. Location: Aveley WA 6069, Australia.
         </p>
 
         <h2 className="mt-10 text-xl font-semibold text-white">Contact</h2>

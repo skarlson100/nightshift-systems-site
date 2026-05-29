@@ -3,14 +3,13 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-  --night: #050505;
-  --charcoal: #11100f;
-  --panel: #171513;
-  --line: #332b27;
-  --text: #f4efe7;
-  --muted: #a79f98;
-  --dim: #716963;
+  color-scheme: light;
+  --paper: #f1eadf;
+  --paper-soft: #f7f2ea;
+  --paper-warm: #ebe3d6;
+  --ink: #15130f;
+  --muted: #5f574f;
+  --line: #d9d0c1;
   --ember: #d92a08;
 }
 
@@ -25,10 +24,10 @@ html {
 body {
   margin: 0;
   background:
-    radial-gradient(circle at 50% -18%, rgba(217, 42, 8, 0.13), transparent 32rem),
-    radial-gradient(circle at 86% 8%, rgba(217, 42, 8, 0.08), transparent 25rem),
-    linear-gradient(180deg, #080706 0%, #050505 42%, #070605 100%);
-  color: var(--text);
+    radial-gradient(circle at 82% 7%, rgba(217, 42, 8, 0.08), transparent 24rem),
+    radial-gradient(circle at 10% 28%, rgba(21, 19, 15, 0.035), transparent 28rem),
+    linear-gradient(180deg, #f5f0e8 0%, var(--paper) 42%, #ebe3d6 100%);
+  color: var(--ink);
   font-family:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   text-rendering: geometricPrecision;
@@ -41,15 +40,15 @@ a {
 }
 
 ::selection {
-  background: rgba(217, 42, 8, 0.34);
-  color: #fff7ed;
+  background: rgba(217, 42, 8, 0.2);
+  color: var(--ink);
 }
 
 .panel-label {
   font-family:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.18em;
   text-transform: uppercase;
 }
@@ -58,29 +57,19 @@ a {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(rgba(217, 42, 8, 0.075) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(217, 42, 8, 0.065) 1px, transparent 1px),
+    linear-gradient(rgba(21, 19, 15, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(21, 19, 15, 0.06) 1px, transparent 1px),
     radial-gradient(circle at 70% 34%, rgba(217, 42, 8, 0.12), transparent 24rem);
   background-position:
     center top,
     center top,
     center;
   background-size:
-    70px 70px,
-    70px 70px,
+    72px 72px,
+    72px 72px,
     auto;
-  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent 86%);
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.42), transparent 84%);
   pointer-events: none;
-}
-
-.scanlines {
-  position: absolute;
-  inset: 0;
-  opacity: 0.11;
-  pointer-events: none;
-  background-image: linear-gradient(to bottom, rgba(244, 239, 231, 0.28) 1px, transparent 1px);
-  background-size: 100% 5px;
-  mix-blend-mode: screen;
 }
 
 .hero-signal-layer {
@@ -93,92 +82,96 @@ a {
 .trace {
   position: absolute;
   height: 1px;
-  width: 36vw;
-  min-width: 280px;
-  background: linear-gradient(90deg, transparent, rgba(217, 42, 8, 0.85), transparent);
-  box-shadow: 0 0 16px rgba(217, 42, 8, 0.5);
-  opacity: 0.75;
-  transform: translateX(-42vw);
-  animation: signal-run 9s linear infinite;
+  width: 30vw;
+  min-width: 260px;
+  background: linear-gradient(90deg, transparent, rgba(217, 42, 8, 0.72), transparent);
+  box-shadow: 0 0 10px rgba(217, 42, 8, 0.2);
+  opacity: 0.55;
+  transform: translateX(-36vw);
+  animation: signal-run 11s linear infinite;
 }
 
 .trace-a {
-  top: 25%;
+  top: 24%;
   animation-delay: -1s;
 }
 
 .trace-b {
-  top: 58%;
-  animation-delay: -4.5s;
-  animation-duration: 12s;
+  top: 55%;
+  animation-delay: -5s;
+  animation-duration: 14s;
 }
 
 .trace-c {
-  top: 80%;
-  animation-delay: -7s;
-  animation-duration: 14s;
-  opacity: 0.42;
+  top: 78%;
+  animation-delay: -8s;
+  animation-duration: 16s;
+  opacity: 0.34;
 }
 
 .pulse-dot {
   position: absolute;
-  height: 0.48rem;
-  width: 0.48rem;
+  height: 0.45rem;
+  width: 0.45rem;
   border-radius: 9999px;
   background: var(--ember);
-  box-shadow: 0 0 22px rgba(217, 42, 8, 0.8);
-  opacity: 0.58;
-  animation: dot-pulse 3.8s ease-in-out infinite;
+  box-shadow: 0 0 16px rgba(217, 42, 8, 0.38);
+  opacity: 0.46;
+  animation: dot-pulse 4.4s ease-in-out infinite;
 }
 
 .dot-a {
   left: 16%;
-  top: 32%;
+  top: 31%;
 }
 
 .dot-b {
   right: 18%;
-  top: 21%;
+  top: 22%;
   animation-delay: -1.4s;
 }
 
 .dot-c {
-  right: 31%;
-  bottom: 22%;
+  right: 32%;
+  bottom: 21%;
   animation-delay: -2.2s;
 }
 
-.control-panel {
+.technical-panel {
   position: relative;
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.45),
+    0 22px 70px rgba(21, 19, 15, 0.055);
 }
 
-.control-panel::before {
+.technical-panel::before {
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
   content: "";
   background:
-    linear-gradient(90deg, rgba(217, 42, 8, 0.12), transparent 22%, transparent 78%, rgba(217, 42, 8, 0.08)),
-    linear-gradient(180deg, rgba(244, 239, 231, 0.035), transparent 36%);
-  opacity: 0.7;
+    linear-gradient(90deg, rgba(217, 42, 8, 0.09), transparent 18%, transparent 82%, rgba(217, 42, 8, 0.055)),
+    linear-gradient(180deg, rgba(21, 19, 15, 0.035), transparent 44%);
+  opacity: 0.75;
 }
 
 .status-pill {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  border: 1px solid rgba(217, 42, 8, 0.28);
+  border: 1px solid rgba(217, 42, 8, 0.24);
   border-radius: 9999px;
-  background: rgba(217, 42, 8, 0.08);
+  background: rgba(217, 42, 8, 0.055);
   padding: 0.28rem 0.62rem;
-  color: #f0b29e;
+  color: #9f260e;
   font-family:
     ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   font-size: 0.68rem;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0.12em;
   text-transform: uppercase;
+  white-space: nowrap;
 }
 
 .status-light {
@@ -186,23 +179,22 @@ a {
   width: 0.42rem;
   border-radius: 9999px;
   background: var(--ember);
-  box-shadow: 0 0 12px rgba(217, 42, 8, 0.75);
+  box-shadow: 0 0 10px rgba(217, 42, 8, 0.45);
 }
 
 .phone-frame {
   position: relative;
   max-height: 520px;
   overflow: hidden;
-  border: 1px solid rgba(72, 61, 55, 0.9);
+  border: 1px solid rgba(21, 19, 15, 0.22);
   border-radius: 2rem;
   background:
-    linear-gradient(145deg, rgba(244, 239, 231, 0.16), rgba(244, 239, 231, 0.035) 18%, rgba(0, 0, 0, 0.92)),
-    #050505;
+    linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 255, 255, 0.16) 18%, rgba(21, 19, 15, 0.12)),
+    #f1eadf;
   padding: 0.48rem;
   box-shadow:
-    inset 0 0 0 1px rgba(244, 239, 231, 0.045),
-    0 24px 70px rgba(0, 0, 0, 0.46),
-    0 0 44px rgba(217, 42, 8, 0.08);
+    inset 0 0 0 1px rgba(255, 255, 255, 0.45),
+    0 24px 70px rgba(21, 19, 15, 0.14);
 }
 
 .phone-frame img {
@@ -219,29 +211,29 @@ a {
   width: 3.5rem;
   transform: translateX(-50%);
   border-radius: 9999px;
-  background: rgba(0, 0, 0, 0.72);
-  box-shadow: 0 1px 0 rgba(244, 239, 231, 0.1);
+  background: rgba(21, 19, 15, 0.74);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 @keyframes signal-run {
   0% {
-    transform: translateX(-42vw);
+    transform: translateX(-36vw);
   }
 
   100% {
-    transform: translateX(112vw);
+    transform: translateX(110vw);
   }
 }
 
 @keyframes dot-pulse {
   0%,
   100% {
-    opacity: 0.25;
-    transform: scale(0.88);
+    opacity: 0.22;
+    transform: scale(0.9);
   }
 
   50% {
-    opacity: 0.75;
+    opacity: 0.62;
     transform: scale(1);
   }
 }
@@ -261,7 +253,7 @@ a {
   }
 
   .trace {
-    opacity: 0.28;
+    opacity: 0.22;
     transform: none;
   }
 }

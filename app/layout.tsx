@@ -3,11 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Nightshift Systems | Practical Software for Operators",
+    default: "Nightshift Systems | Software Systems for Operators",
     template: "%s | Nightshift Systems"
   },
   description:
-    "Nightshift Systems builds FleetTrack Pro and practical software for small operators, vehicle fleets, and operational businesses.",
+    "Nightshift Systems is a focused Perth software studio building FleetTrack Pro and practical software tools for fleet, operations, and business workflows.",
   metadataBase: new URL("https://nightshiftsystems.com.au"),
   applicationName: "Nightshift Systems",
   alternates: {
@@ -20,17 +20,17 @@ export const metadata: Metadata = {
     "contact:email": "support@nightshiftsystems.com.au"
   },
   openGraph: {
-    title: "Nightshift Systems | Practical Software for Operators",
+    title: "Nightshift Systems | Software Systems for Operators",
     description:
-      "Nightshift Systems builds FleetTrack Pro and practical software for small operators, vehicle fleets, and operational businesses.",
+      "A focused Perth software studio building FleetTrack Pro and practical tools for fleet, operations, and business workflows.",
     url: "https://nightshiftsystems.com.au",
     siteName: "Nightshift Systems",
     images: [
       {
-        url: "/images/fleettrack/dashboard.jpeg",
-        width: 946,
-        height: 2049,
-        alt: "FleetTrack Pro dashboard screenshot"
+        url: "/images/brand/nightshift-systems-logo-light.png",
+        width: 2000,
+        height: 2000,
+        alt: "Nightshift Systems logo"
       }
     ],
     locale: "en_AU",
@@ -38,10 +38,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nightshift Systems | Practical Software for Operators",
+    title: "Nightshift Systems | Software Systems for Operators",
     description:
-      "Nightshift Systems builds FleetTrack Pro and practical software for small operators, vehicle fleets, and operational businesses.",
-    images: ["/images/fleettrack/dashboard.jpeg"]
+      "A focused Perth software studio building FleetTrack Pro and practical tools for fleet, operations, and business workflows.",
+    images: ["/images/brand/nightshift-systems-logo-light.png"]
   }
 };
 

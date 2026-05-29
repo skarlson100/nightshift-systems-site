@@ -2,24 +2,24 @@ import type { Metadata } from "next";
 import Image from "next/image";
 
 export const metadata: Metadata = {
-  title: "Nightshift Systems | Practical Software for Operators",
+  title: "Nightshift Systems | Software Systems for Operators",
   description:
-    "Nightshift Systems builds FleetTrack Pro and practical software for small operators, vehicle fleets, and operational businesses.",
+    "Nightshift Systems is a focused Perth software studio building FleetTrack Pro and practical software tools for fleet, operations, and business workflows.",
   alternates: {
     canonical: "/"
   },
   openGraph: {
-    title: "Nightshift Systems | Practical Software for Operators",
+    title: "Nightshift Systems | Software Systems for Operators",
     description:
-      "Nightshift Systems builds FleetTrack Pro and practical software for small operators, vehicle fleets, and operational businesses.",
+      "A focused Perth software studio building FleetTrack Pro and practical tools for fleet, operations, and business workflows.",
     url: "https://nightshiftsystems.com.au",
     siteName: "Nightshift Systems",
     images: [
       {
-        url: "/images/fleettrack/dashboard.jpeg",
-        width: 946,
-        height: 2049,
-        alt: "FleetTrack Pro dashboard screenshot"
+        url: "/images/brand/nightshift-systems-logo-light.png",
+        width: 2000,
+        height: 2000,
+        alt: "Nightshift Systems logo"
       }
     ],
     locale: "en_AU",
@@ -27,57 +27,49 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nightshift Systems | Practical Software for Operators",
+    title: "Nightshift Systems | Software Systems for Operators",
     description:
-      "Nightshift Systems builds FleetTrack Pro and practical software for small operators, vehicle fleets, and operational businesses.",
-    images: ["/images/fleettrack/dashboard.jpeg"]
+      "A focused Perth software studio building FleetTrack Pro and practical tools for fleet, operations, and business workflows.",
+    images: ["/images/brand/nightshift-systems-logo-light.png"]
   }
 };
 
+const accent = "text-[#d92a08]";
+
 const buildItems = [
   {
-    icon: "01",
+    code: "OPS",
     title: "Operational software systems",
-    text: "Practical systems for daily operations, job tracking, records, reminders, costs, and the work that sits between people and spreadsheets."
+    text: "Tools for records, reminders, costs, jobs, and the daily handovers that usually end up scattered across spreadsheets and inboxes."
   },
   {
-    icon: "02",
+    code: "FLT",
     title: "Fleet and asset platforms",
-    text: "FleetTrack Pro is the flagship product: software for vehicles, servicing, compliance, costs, usage, and operational history."
+    text: "FleetTrack Pro is the flagship product: a platform for maintenance, expenses, GPS usage, compliance, service alerts, and fleet history."
   },
   {
-    icon: "03",
+    code: "INT",
     title: "Internal business tools",
-    text: "Focused internal tools for businesses that need cleaner data capture, fewer manual handovers, and better visibility."
+    text: "Focused internal systems for businesses that need cleaner data capture, fewer manual steps, and better control over repeat workflows."
   }
 ];
 
-const proofItems = ["FleetTrack Pro", "Operational software", "Internal tools", "Selected projects"];
-
 const fleetFeatures = [
-  "Maintenance and expense tracking",
-  "GPS trip tracking",
-  "Compliance management",
-  "Service interval alerts",
-  "AI receipt scanning",
-  "PDF reports",
-  "Multi-user roles",
-  "Small fleets"
+  "Maintenance tracking",
+  "Fleet costs",
+  "GPS trip records",
+  "Usage history",
+  "Compliance reminders",
+  "Service intervals",
+  "Receipt scanning",
+  "PDF reports"
 ];
 
-const processSteps = [
-  ["Discover", "Understand the operational problem, current records, and what the team needs to see."],
-  ["Design", "Map the simplest useful system around the real workflow, not a generic template."],
-  ["Build", "Develop the working tool with practical interfaces and maintainable foundations."],
-  ["Launch", "Put it in front of real users, adjust the rough edges, and support adoption."],
-  ["Improve", "Refine the system as the business learns what it needs next."]
-];
-
-const consoleModules = [
-  ["Vehicles", "Service records", "FleetTrack Pro"],
-  ["Costs", "Parts and labour", "Operational history"],
-  ["Compliance", "Registration reminders", "Internal records"],
-  ["Reports", "PDF exports", "Management view"]
+const statusRows = [
+  ["00:12", "maintenance queue", "synced"],
+  ["00:18", "cost ledger", "recorded"],
+  ["00:24", "vehicle usage", "mapped"],
+  ["00:31", "report export", "ready"]
 ];
 
 function Container({ children, className = "" }: Readonly<{ children: React.ReactNode; className?: string }>) {
@@ -91,116 +83,137 @@ function Button({
 }: Readonly<{
   href: string;
   children: React.ReactNode;
-  variant?: "primary" | "secondary" | "fleet";
+  variant?: "primary" | "secondary";
 }>) {
   const styles = {
     primary:
-      "border-emerald-400/40 bg-emerald-400 text-[#03110b] hover:bg-emerald-300 hover:border-emerald-300 shadow-[0_16px_48px_rgba(52,211,153,0.16)]",
-    secondary: "border-slate-700 bg-slate-950/40 text-slate-100 hover:border-slate-500 hover:bg-slate-900",
-    fleet:
-      "border-[#ff5722]/45 bg-[#ff5722] text-white hover:border-[#ff7a45] hover:bg-[#ff6a32] shadow-[0_16px_48px_rgba(255,87,34,0.16)]"
+      "border-[#d92a08] bg-[#d92a08] text-[#fff7ed] shadow-[0_16px_44px_rgba(217,42,8,0.18)] hover:border-[#f04a22] hover:bg-[#f04a22]",
+    secondary:
+      "border-[#3a332f] bg-[#11100f]/80 text-[#f4efe7] hover:border-[#d92a08]/55 hover:bg-[#181614]"
   };
 
   return (
     <a
       href={href}
-      className={`inline-flex min-h-11 items-center justify-center rounded-md border px-4 text-sm font-medium transition duration-200 hover:-translate-y-0.5 ${styles[variant]}`}
+      className={`inline-flex min-h-11 items-center justify-center rounded-md border px-4 text-sm font-semibold transition duration-200 hover:-translate-y-0.5 focus:outline-none focus:ring-2 focus:ring-[#d92a08]/70 focus:ring-offset-2 focus:ring-offset-[#050505] ${styles[variant]}`}
     >
       {children}
     </a>
   );
 }
 
+function LogoPlate({ compact = false }: Readonly<{ compact?: boolean }>) {
+  return (
+    <div
+      className={
+        compact
+          ? "relative h-10 w-10 overflow-hidden rounded border border-[#d92a08]/25 bg-[#f3f0eb]"
+          : "relative mx-auto aspect-square w-full max-w-[420px] overflow-hidden rounded-lg border border-[#d92a08]/25 bg-[#f3f0eb] shadow-[0_30px_110px_rgba(0,0,0,0.55),0_0_90px_rgba(217,42,8,0.14)]"
+      }
+    >
+      <Image
+        src="/images/brand/nightshift-systems-logo-light.png"
+        alt="Nightshift Systems logo"
+        fill
+        sizes={compact ? "40px" : "(max-width: 768px) 82vw, 420px"}
+        priority={!compact}
+        className="object-contain p-1"
+      />
+    </div>
+  );
+}
+
 function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-slate-800/80 bg-[#050608]/82 backdrop-blur-xl">
+    <header className="sticky top-0 z-50 border-b border-[#2a2421] bg-[#050505]/88 backdrop-blur-xl">
       <Container className="flex h-16 items-center justify-between gap-6">
-        <a href="/" className="flex items-center gap-3">
-          <span className="flex h-8 w-8 items-center justify-center rounded-md border border-emerald-400/30 bg-emerald-400/10 text-sm font-bold text-emerald-300">
-            NS
+        <a href="/" className="flex items-center gap-3" aria-label="Nightshift Systems home">
+          <LogoPlate compact />
+          <span className="hidden text-xs font-semibold uppercase tracking-[0.2em] text-[#f4efe7] sm:inline">
+            Nightshift Systems
           </span>
-          <span className="text-sm font-semibold tracking-[-0.01em] text-white">Nightshift Systems</span>
         </a>
-        <nav className="hidden items-center gap-7 text-sm text-slate-400 md:flex">
-          <a href="#build" className="transition hover:text-white">What we build</a>
-          <a href="#fleettrack" className="transition hover:text-white">FleetTrack Pro</a>
-          <a href="#about" className="transition hover:text-white">About</a>
-          <a href="#process" className="transition hover:text-white">Process</a>
-          <a href="#contact" className="transition hover:text-white">Contact</a>
+        <nav className="hidden items-center gap-7 text-sm text-[#9a928b] md:flex">
+          <a href="#build" className="transition hover:text-[#f4efe7]">What we do</a>
+          <a href="#fleettrack" className="transition hover:text-[#f4efe7]">FleetTrack Pro</a>
+          <a href="#why" className="transition hover:text-[#f4efe7]">Why we build</a>
+          <a href="#contact" className="transition hover:text-[#f4efe7]">Contact</a>
         </nav>
-        <Button href="mailto:support@nightshiftsystems.com.au" variant="secondary">Start a project</Button>
+        <Button href="mailto:support@nightshiftsystems.com.au" variant="secondary">Contact</Button>
       </Container>
-      <nav className="border-t border-slate-800/70 md:hidden">
-        <Container className="flex gap-5 overflow-x-auto py-3 text-sm text-slate-400">
-          <a href="#build" className="shrink-0 transition hover:text-white">What we build</a>
-          <a href="#fleettrack" className="shrink-0 transition hover:text-white">FleetTrack Pro</a>
-          <a href="#about" className="shrink-0 transition hover:text-white">About</a>
-          <a href="#process" className="shrink-0 transition hover:text-white">Process</a>
-          <a href="#contact" className="shrink-0 transition hover:text-white">Contact</a>
-        </Container>
-      </nav>
     </header>
+  );
+}
+
+function HeroSignals() {
+  return (
+    <div className="hero-signal-layer" aria-hidden="true">
+      <span className="trace trace-a" />
+      <span className="trace trace-b" />
+      <span className="trace trace-c" />
+      <span className="pulse-dot dot-a" />
+      <span className="pulse-dot dot-b" />
+      <span className="pulse-dot dot-c" />
+    </div>
   );
 }
 
 function OperationsConsole() {
   return (
-    <div className="rounded-xl border border-slate-800 bg-[#0b1016]/86 shadow-[0_30px_100px_rgba(0,0,0,0.32)]">
-      <div className="flex items-center justify-between border-b border-slate-800 px-4 py-3">
+    <aside className="control-panel relative overflow-hidden rounded-lg border border-[#332b27] bg-[#0d0c0b]/92 shadow-[0_30px_100px_rgba(0,0,0,0.42)]">
+      <div className="flex items-center justify-between border-b border-[#332b27] px-4 py-3">
         <div>
-          <p className="text-xs text-slate-500">Example operational interface</p>
-          <h2 className="mt-1 text-sm font-medium text-slate-100">Fleet and cost records</h2>
+          <p className="panel-label">Live system model</p>
+          <h2 className="mt-1 text-sm font-semibold text-[#f4efe7]">Operations command surface</h2>
         </div>
-        <span className="rounded-full border border-emerald-400/30 bg-emerald-400/10 px-2.5 py-1 text-xs font-medium text-emerald-300">
-          illustrative
+        <span className="status-pill">
+          <span className="status-light" />
+          nominal
         </span>
       </div>
 
-      <div className="grid gap-px bg-slate-800 md:grid-cols-4">
-        {consoleModules.map(([label, value, state]) => (
-          <div key={label} className="bg-[#0d1117] p-4">
-            <div className="flex items-center justify-between gap-3">
-              <p className="text-xs font-medium text-slate-400">{label}</p>
-              <span className="h-2 w-2 rounded-full bg-emerald-400" />
-            </div>
-            <p className="mt-3 text-lg font-semibold text-white">{value}</p>
-            <p className="mt-1 text-xs text-slate-500">{state}</p>
+      <div className="grid gap-px bg-[#332b27] sm:grid-cols-3">
+        {[
+          ["Fleet", "costs / service"],
+          ["Records", "usage / history"],
+          ["Reports", "export / review"]
+        ].map(([label, value]) => (
+          <div key={label} className="bg-[#11100f] p-4">
+            <p className="panel-label">{label}</p>
+            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.14em] text-[#f4efe7]">{value}</p>
           </div>
         ))}
       </div>
 
-      <div className="grid gap-px bg-slate-800 lg:grid-cols-[1.1fr_0.9fr]">
-        <div className="bg-[#0d1117] p-5">
+      <div className="grid gap-px bg-[#332b27] lg:grid-cols-[1.02fr_0.98fr]">
+        <div className="bg-[#11100f] p-5">
           <div className="mb-4 flex items-center justify-between">
-            <p className="text-sm font-medium text-white">Operational records</p>
-            <span className="text-xs text-slate-500">example view</span>
+            <p className="text-sm font-semibold text-[#f4efe7]">Signal log</p>
+            <span className="font-mono text-xs text-[#716963]">PER / WA</span>
           </div>
-          {["Oyster MK 2 service logged", "Registration renewal noted", "Tyre replacement cost added", "Monthly fleet report prepared"].map(
-            (item, index) => (
-              <div key={item} className="flex items-center gap-3 border-t border-slate-800 py-3 first:border-t-0">
-                <span className="text-xs tabular-nums text-slate-500">0{index + 1}</span>
-                <span className="h-2 w-2 rounded-full bg-emerald-400/80" />
-                <span className="flex-1 text-sm text-slate-300">{item}</span>
-                <span className="text-xs text-slate-500">recorded</span>
-              </div>
-            )
-          )}
+          {statusRows.map(([time, item, state]) => (
+            <div key={item} className="grid grid-cols-[3.4rem_1fr_auto] items-center gap-3 border-t border-[#2a2421] py-3 first:border-t-0">
+              <span className="font-mono text-xs text-[#716963]">{time}</span>
+              <span className="text-sm text-[#c8bfb6]">{item}</span>
+              <span className={`font-mono text-xs uppercase tracking-[0.12em] ${accent}`}>{state}</span>
+            </div>
+          ))}
         </div>
 
-        <div className="bg-[#0d1117] p-5">
-          <p className="text-sm font-medium text-white">System shape</p>
-          <pre className="mt-4 overflow-hidden rounded-lg border border-slate-800 bg-[#050608] p-4 text-xs leading-6 text-slate-300">
-            <code>{`vehicles.record()
-service.log()
-costs.review()
-report.export()`}</code>
+        <div className="bg-[#11100f] p-5">
+          <p className="text-sm font-semibold text-[#f4efe7]">Workflow core</p>
+          <pre className="mt-4 overflow-hidden rounded-md border border-[#332b27] bg-[#050505] p-4 font-mono text-xs leading-6 text-[#c8bfb6]">
+            <code>{`fleet.costs()
+service.alerts()
+usage.review()
+reports.export()`}</code>
           </pre>
-          <p className="mt-4 text-sm leading-6 text-slate-500">
-            A simplified representation of the kind of operational interface Nightshift Systems builds around real records and decisions.
+          <p className="mt-4 text-sm leading-6 text-[#8f8780]">
+            A restrained interface language for practical tools: clear status, traceable records, and fewer moving parts.
           </p>
         </div>
       </div>
-    </div>
+    </aside>
   );
 }
 
@@ -211,9 +224,9 @@ function SectionHeading({
 }: Readonly<{ eyebrow: string; title: string; text?: string }>) {
   return (
     <div className="max-w-3xl">
-      <p className="text-xs font-medium uppercase tracking-[0.22em] text-emerald-300">{eyebrow}</p>
-      <h2 className="mt-4 text-3xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">{title}</h2>
-      {text ? <p className="mt-5 text-base leading-8 text-slate-400">{text}</p> : null}
+      <p className="panel-label text-[#d92a08]">{eyebrow}</p>
+      <h2 className="mt-4 text-3xl font-semibold tracking-[-0.025em] text-[#f4efe7] sm:text-5xl">{title}</h2>
+      {text ? <p className="mt-5 text-base leading-8 text-[#a79f98]">{text}</p> : null}
     </div>
   );
 }
@@ -240,7 +253,7 @@ function PhoneFrame({
 
 function FleetVisual() {
   return (
-    <div className="rounded-xl border border-slate-800 bg-[#070b12] p-5">
+    <div className="control-panel rounded-lg border border-[#332b27] bg-[#0b0a09] p-5">
       <div className="grid gap-5 sm:grid-cols-[280px_1fr] sm:items-center">
         <PhoneFrame
           src="/images/fleettrack/dashboard.jpeg"
@@ -248,10 +261,13 @@ function FleetVisual() {
           className="mx-auto h-[520px] w-[250px]"
         />
         <div className="grid gap-4">
-          <div className="rounded-lg border border-[#ff5722]/20 bg-[#111827] p-4">
+          <div className="rounded-md border border-[#d92a08]/25 bg-[#141210] p-4 shadow-[0_0_36px_rgba(217,42,8,0.08)]">
             <div className="flex items-center justify-between">
-              <p className="text-sm font-medium text-white">Fleet status</p>
-              <span className="rounded-full bg-emerald-400/10 px-2.5 py-1 text-xs font-medium text-emerald-300">Active</span>
+              <p className="text-sm font-semibold text-[#f4efe7]">Fleet status</p>
+              <span className="status-pill">
+                <span className="status-light" />
+                active
+              </span>
             </div>
             <div className="mt-4 grid grid-cols-3 gap-3">
               {[
@@ -259,21 +275,20 @@ function FleetVisual() {
                 ["0", "overdue"],
                 ["$3.2k", "MTD"]
               ].map(([value, label]) => (
-                <div key={label} className="rounded-md border border-slate-700/70 bg-slate-950/35 p-3">
-                  <p className="text-lg font-semibold text-[#ff6a32]">{value}</p>
-                  <p className="mt-1 text-xs text-slate-500">{label}</p>
+                <div key={label} className="rounded-md border border-[#332b27] bg-[#050505]/55 p-3">
+                  <p className="text-lg font-semibold text-[#d92a08]">{value}</p>
+                  <p className="mt-1 text-xs text-[#8f8780]">{label}</p>
                 </div>
               ))}
             </div>
           </div>
-          <div className="rounded-lg border border-slate-800 bg-[#0d1117] p-4">
-            <p className="text-sm font-medium text-white">Recent maintenance</p>
-            <div className="mt-4 space-y-3 text-sm">
-              {["Fix dent on front passenger A panel", "4 x new tyres", "Vehicle service"].map((item) => (
-                <div key={item} className="flex items-center justify-between gap-4">
-                  <span className="text-slate-400">{item}</span>
-                  <span className="rounded-full bg-emerald-400/10 px-2 py-1 text-xs text-emerald-300">Complete</span>
-                </div>
+          <div className="rounded-md border border-[#332b27] bg-[#11100f] p-4">
+            <p className="text-sm font-semibold text-[#f4efe7]">FleetTrack Pro handles</p>
+            <div className="mt-4 grid gap-2 text-sm sm:grid-cols-2">
+              {fleetFeatures.slice(0, 6).map((item) => (
+                <span key={item} className="border-l border-[#d92a08]/45 pl-3 text-[#c8bfb6]">
+                  {item}
+                </span>
               ))}
             </div>
           </div>
@@ -290,86 +305,100 @@ function FleetVisual() {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#050608] text-white">
+    <main className="min-h-screen bg-[#050505] text-[#f4efe7]">
       <Header />
 
-      <section className="relative overflow-hidden border-b border-slate-800">
+      <section className="relative overflow-hidden border-b border-[#2a2421]">
         <div className="hero-grid" />
-        <Container className="relative grid gap-12 py-20 lg:grid-cols-[0.92fr_1.08fr] lg:items-center lg:py-28">
+        <div className="scanlines" aria-hidden="true" />
+        <HeroSignals />
+        <Container className="relative grid gap-14 py-20 lg:grid-cols-[0.95fr_1.05fr] lg:items-center lg:py-28">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-emerald-300">Nightshift Systems</p>
-            <h1 className="mt-5 max-w-3xl text-5xl font-semibold leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-7xl">
-              Practical software for real operational work.
+            <p className="panel-label text-[#d92a08]">Perth / independent software studio</p>
+            <div className="mt-6 max-w-[360px] sm:hidden">
+              <LogoPlate />
+            </div>
+            <h1 className="mt-7 max-w-4xl text-4xl font-semibold leading-[1.02] tracking-[-0.035em] text-[#f4efe7] sm:text-6xl lg:text-7xl">
+              Software systems for operators who need less noise and more control.
             </h1>
-            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-400">
-              FleetTrack Pro is a product of Nightshift Systems. Nightshift Systems also builds practical
-              software for small operators, vehicle fleets, and operational businesses that need clearer records and cleaner workflows.
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-[#b3aaa2]">
+              Nightshift Systems builds practical software tools for fleet, operations, and business workflows.
+              FleetTrack Pro is the flagship product, backed by the same focused approach: clear records, useful
+              interfaces, and systems that respect how the work actually runs.
             </p>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="mailto:support@nightshiftsystems.com.au">Start a project</Button>
-              <Button href="#fleettrack" variant="secondary">View FleetTrack Pro</Button>
+              <Button href="#fleettrack">View FleetTrack Pro</Button>
+              <Button href="mailto:support@nightshiftsystems.com.au" variant="secondary">Contact Nightshift Systems</Button>
             </div>
-            <p className="mt-6 text-sm text-slate-500">
-              Built in Australia. Nightshift Systems is operated by CAJON OUTDOOR EQUIPMENT PTY LTD.
-            </p>
+            <div className="mt-8 grid max-w-xl grid-cols-3 gap-px bg-[#332b27] text-center">
+              {["Perth", "ESTD 2026", "Software studio"].map((item) => (
+                <span key={item} className="bg-[#0d0c0b]/90 px-3 py-3 text-xs font-semibold uppercase tracking-[0.16em] text-[#9a928b]">
+                  {item}
+                </span>
+              ))}
+            </div>
           </div>
 
-          <OperationsConsole />
+          <div className="relative hidden sm:block">
+            <div className="absolute inset-8 rounded-full border border-[#d92a08]/10" aria-hidden="true" />
+            <LogoPlate />
+          </div>
         </Container>
       </section>
 
-      <section className="border-b border-slate-800 bg-[#080b0f]">
-        <Container className="grid gap-px bg-slate-800 py-px sm:grid-cols-2 lg:grid-cols-4">
-          {proofItems.map((item) => (
-            <div key={item} className="bg-[#0d1117] p-5">
-              <p className="text-sm font-medium text-slate-200">{item}</p>
+      <section className="border-b border-[#2a2421] bg-[#0a0908]">
+        <Container className="grid gap-px bg-[#332b27] py-px sm:grid-cols-2 lg:grid-cols-4">
+          {["FleetTrack Pro", "Operational software", "Internal tools", "Perth, Western Australia"].map((item) => (
+            <div key={item} className="bg-[#11100f] p-5">
+              <p className="panel-label text-[#8f8780]">{item}</p>
             </div>
           ))}
         </Container>
       </section>
 
-      <section id="build" className="border-b border-slate-800 py-20 lg:py-24">
+      <section id="build" className="border-b border-[#2a2421] py-20 lg:py-24">
         <Container>
           <SectionHeading
-            eyebrow="What we build"
+            eyebrow="What Nightshift Systems does"
             title="Focused systems for operational businesses."
-            text="Nightshift Systems is an Australian software and automation studio focused on practical products, FleetTrack Pro, and selected internal tools for operational businesses."
+            text="Nightshift Systems is a small, focused software studio. The work is practical by design: tools for people who need dependable records, clearer workflows, and software that gets out of the way."
           />
           <div className="mt-10 grid gap-4 md:grid-cols-3">
             {buildItems.map((item) => (
-              <article key={item.title} className="group rounded-xl border border-slate-800 bg-[#0d1117] p-5 transition duration-200 hover:border-emerald-400/35">
-                <span className="flex h-9 w-9 items-center justify-center rounded-md border border-slate-700 bg-slate-950 text-xs font-medium text-emerald-300 group-hover:border-emerald-400/40">
-                  {item.icon}
+              <article key={item.title} className="control-panel rounded-lg border border-[#332b27] bg-[#11100f] p-5 transition duration-200 hover:border-[#d92a08]/45">
+                <span className="inline-flex h-9 min-w-12 items-center justify-center rounded border border-[#44372f] bg-[#050505] px-3 font-mono text-xs font-semibold text-[#d92a08]">
+                  {item.code}
                 </span>
-                <h3 className="mt-6 text-lg font-semibold tracking-[-0.01em] text-white">{item.title}</h3>
-                <p className="mt-3 text-sm leading-7 text-slate-400">{item.text}</p>
+                <h3 className="mt-6 text-lg font-semibold tracking-[-0.01em] text-[#f4efe7]">{item.title}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#a79f98]">{item.text}</p>
               </article>
             ))}
           </div>
         </Container>
       </section>
 
-      <section id="fleettrack" className="border-b border-slate-800 bg-[#070a0f] py-20 lg:py-24">
+      <section id="fleettrack" className="border-b border-[#2a2421] bg-[#090807] py-20 lg:py-24">
         <Container className="grid gap-12 lg:grid-cols-[0.86fr_1.14fr] lg:items-center">
           <div>
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-[#ff6a32]">FleetTrack Pro</p>
-            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.04em] text-white sm:text-5xl">
-              Fleet management without the enterprise bloat.
+            <p className="panel-label text-[#d92a08]">Flagship product</p>
+            <h2 className="mt-4 text-4xl font-semibold tracking-[-0.035em] text-[#f4efe7] sm:text-5xl">
+              FleetTrack Pro is built by Nightshift Systems.
             </h2>
-            <p className="mt-5 max-w-xl text-base leading-8 text-slate-400">
-              A mobile-first fleet system for small operators who need maintenance and expense tracking, GPS trips,
-              compliance management, service alerts, PDF reports, and multi-user access in one place.
+            <p className="mt-5 max-w-xl text-base leading-8 text-[#a79f98]">
+              FleetTrack Pro is a fleet cost, maintenance, usage, and operations tracking platform for small operators.
+              It brings vehicle records, servicing, expenses, GPS trip history, compliance reminders, and reporting into
+              one cleaner workflow.
             </p>
             <div className="mt-7 flex flex-wrap gap-2">
               {fleetFeatures.map((feature) => (
-                <span key={feature} className="rounded-full border border-[#ff5722]/20 bg-[#ff5722]/8 px-3 py-1.5 text-sm text-slate-300">
+                <span key={feature} className="rounded-full border border-[#d92a08]/25 bg-[#d92a08]/8 px-3 py-1.5 text-sm text-[#d8d0c7]">
                   {feature}
                 </span>
               ))}
             </div>
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-              <Button href="https://fleettrackpro.com.au" variant="fleet">View FleetTrack Pro</Button>
-              <Button href="#build" variant="secondary">See features</Button>
+              <Button href="https://fleettrackpro.com.au">View FleetTrack Pro</Button>
+              <Button href="mailto:support@nightshiftsystems.com.au" variant="secondary">Ask about operations software</Button>
             </div>
           </div>
 
@@ -377,63 +406,40 @@ export default function Home() {
         </Container>
       </section>
 
-      <section id="about" className="border-b border-slate-800 py-20 lg:py-24">
-        <Container className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
-          <div>
-            <p className="text-xs font-medium uppercase tracking-[0.22em] text-emerald-300">About</p>
-            <h2 className="mt-4 text-3xl font-semibold tracking-[-0.035em] text-white sm:text-5xl">
-              Built from operational work, not a pitch deck.
-            </h2>
-          </div>
-          <div className="rounded-xl border border-slate-800 bg-[#0d1117] p-6 sm:p-7">
-            <p className="text-base leading-8 text-slate-300">
-              Nightshift Systems is an Australian software and automation studio operated by CAJON OUTDOOR EQUIPMENT PTY LTD.
-              It builds practical software products for small operators, vehicle fleets, and operational businesses.
-            </p>
-            <p className="mt-5 text-base leading-8 text-slate-400">
-              FleetTrack Pro is a product of Nightshift Systems and is the flagship product. It is built for managing vehicles,
-              servicing, compliance, operating costs, and fleet records without enterprise complexity.
-            </p>
-            <p className="mt-5 text-base leading-8 text-slate-400">
-              Nightshift Systems is operated from Aveley WA 6069, Australia. Legal entity: CAJON OUTDOOR EQUIPMENT PTY LTD.
-              ABN 88 673 204 558. ACN 673 204 558. D-U-N-S 891696846.
-            </p>
-          </div>
-        </Container>
-      </section>
-
-      <section id="process" className="border-b border-slate-800 py-20 lg:py-24">
-        <Container>
+      <section id="why" className="border-b border-[#2a2421] py-20 lg:py-24">
+        <Container className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
           <SectionHeading
-            eyebrow="Process"
-            title="From problem to working system."
-            text="A clear, practical path for selected projects where the workflow is understood and the system has a real operational job to do."
+            eyebrow="Why we build software"
+            title="The best tools are quiet, direct, and tied to the work."
           />
-          <div className="mt-10 grid gap-4 md:grid-cols-5">
-            {processSteps.map(([title, text], index) => (
-              <article key={title} className="rounded-xl border border-slate-800 bg-[#0d1117] p-5">
-                <p className="text-sm font-medium text-emerald-300">0{index + 1}</p>
-                <h3 className="mt-5 text-lg font-semibold text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-slate-400">{text}</p>
-              </article>
-            ))}
+          <div className="control-panel rounded-lg border border-[#332b27] bg-[#11100f] p-6 sm:p-7">
+            <p className="text-base leading-8 text-[#d8d0c7]">
+              Nightshift Systems exists for the operational middle ground: businesses that have outgrown paper trails
+              and spreadsheet workarounds, but do not need an oversized enterprise platform.
+            </p>
+            <p className="mt-5 text-base leading-8 text-[#a79f98]">
+              The studio is independent and Perth-based. The focus is narrow on purpose: practical software products,
+              selected internal tools, and interfaces that make fleet, operations, and business records easier to trust.
+            </p>
+            <p className="mt-5 text-base leading-8 text-[#a79f98]">
+              That means fewer claims, cleaner systems, and a bias toward tools that can be used by real operators under
+              real time pressure.
+            </p>
           </div>
         </Container>
       </section>
 
       <section id="contact" className="py-20 lg:py-24">
         <Container>
-          <div className="rounded-xl border border-slate-800 bg-[#0d1117] p-6 sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
+          <div className="control-panel rounded-lg border border-[#d92a08]/35 bg-[#11100f] p-6 shadow-[0_0_70px_rgba(217,42,8,0.08)] sm:p-8 lg:flex lg:items-center lg:justify-between lg:gap-10">
             <div>
-              <h2 className="text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl">
-                Ready to replace the messy workaround?
+              <p className="panel-label text-[#d92a08]">Contact</p>
+              <h2 className="mt-4 text-3xl font-semibold tracking-[-0.025em] text-[#f4efe7] sm:text-4xl">
+                Need a cleaner operational system?
               </h2>
-              <p className="mt-4 max-w-2xl text-base leading-8 text-slate-400">
-                Tell us what is slowing your team down. Nightshift Systems can help turn it into a practical system your
-                business can actually use.
-              </p>
-              <p className="mt-4 text-sm leading-6 text-slate-500">
-                Nightshift Systems is operated by CAJON OUTDOOR EQUIPMENT PTY LTD, ABN 88 673 204 558.
+              <p className="mt-4 max-w-2xl text-base leading-8 text-[#a79f98]">
+                Contact Nightshift Systems about FleetTrack Pro, fleet operations, or a focused internal software tool
+                for a workflow that needs more control.
               </p>
             </div>
             <div className="mt-6 lg:mt-0">
@@ -443,30 +449,28 @@ export default function Home() {
         </Container>
       </section>
 
-      <footer className="border-t border-slate-800 py-8">
+      <footer className="border-t border-[#2a2421] bg-[#080706] py-8">
         <Container>
-          <div className="grid gap-8 text-sm text-slate-500 md:grid-cols-[1.2fr_1fr_1fr]">
+          <div className="grid gap-8 text-sm text-[#8f8780] md:grid-cols-[1.2fr_1fr_1fr]">
             <div>
-              <p className="font-semibold text-white">Nightshift Systems</p>
-              <p className="mt-2">Australian software and automation studio</p>
+              <p className="font-semibold uppercase tracking-[0.16em] text-[#f4efe7]">Nightshift Systems</p>
+              <p className="mt-2">Perth, Western Australia</p>
+              <p className="mt-1">ABN: 23942251561</p>
             </div>
             <div>
-              <a href="#fleettrack" className="transition hover:text-slate-200">FleetTrack Pro</a>
+              <a href="#fleettrack" className="transition hover:text-[#f4efe7]">FleetTrack Pro</a>
             </div>
             <div>
-              <a href="mailto:support@nightshiftsystems.com.au" className="transition hover:text-slate-200">
+              <a href="mailto:support@nightshiftsystems.com.au" className="transition hover:text-[#f4efe7]">
                 support@nightshiftsystems.com.au
               </a>
             </div>
           </div>
-          <div className="mt-8 flex flex-col gap-4 border-t border-slate-800 pt-6 text-xs text-slate-600 sm:flex-row sm:items-center sm:justify-between">
-            <p>
-              &copy; 2026 Nightshift Systems. Nightshift Systems is a trading name of CAJON OUTDOOR EQUIPMENT PTY LTD.
-              ABN 88 673 204 558.
-            </p>
+          <div className="mt-8 flex flex-col gap-4 border-t border-[#2a2421] pt-6 text-xs text-[#716963] sm:flex-row sm:items-center sm:justify-between">
+            <p>&copy; 2026 Nightshift Systems. FleetTrack Pro is a product by Nightshift Systems.</p>
             <div className="flex gap-6">
-              <a href="/privacy" className="transition hover:text-slate-400">Privacy Policy</a>
-              <a href="/terms" className="transition hover:text-slate-400">Terms of Service</a>
+              <a href="/privacy" className="transition hover:text-[#c8bfb6]">Privacy Policy</a>
+              <a href="/terms" className="transition hover:text-[#c8bfb6]">Terms of Service</a>
             </div>
           </div>
         </Container>

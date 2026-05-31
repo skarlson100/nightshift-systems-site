@@ -112,8 +112,8 @@ function LogoBlock({ compact = false }: Readonly<{ compact?: boolean }>) {
     <div
       className={
         compact
-          ? "relative h-11 w-11 overflow-hidden rounded-full border border-[#cfc5b5] bg-[#f1eadf]"
-          : "relative aspect-square w-full overflow-hidden rounded-[2rem] border border-[#cfc5b5] bg-[#f1eadf]"
+          ? "relative h-11 w-11"
+          : "relative aspect-square w-full"
       }
     >
       <Image
@@ -122,7 +122,7 @@ function LogoBlock({ compact = false }: Readonly<{ compact?: boolean }>) {
         fill
         sizes={compact ? "44px" : "(max-width: 768px) 88vw, 520px"}
         priority={!compact}
-        className="object-contain p-2"
+        className="object-contain"
       />
     </div>
   );
